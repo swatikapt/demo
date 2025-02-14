@@ -1,0 +1,18 @@
+#!/bin/bash
+<<info
+this script is used to see whether user exists or not
+info
+
+
+read -p "enter username to be checked" username
+
+count=$(cat /etc/passwd | grep $username | wc | awk '{print $1}')
+
+echo "$count"
+
+if [count -eq 0];
+then
+	echo"user exists"
+else
+	echo "user does not exist"
+fi
